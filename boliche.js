@@ -8,10 +8,7 @@ class Turn {
     printBoard(){
         let firstT  = 0, secondT = 0, iTemp   = 0, iTotal  = 0, iToString = 0, sString1 = '', sTotales = '', sString2 = '';
         this.board.forEach(function(value){
-            firstT = value[0]; 
-            secondT = value[1];
-            iTotal = firstT+secondT;
-            iTotal =(iTemp!=0 ? iTotal+iTemp : iTotal);
+            firstT = value[0]; secondT = value[1]; iTotal = firstT+secondT; iTotal =(iTemp!=0 ? iTotal+iTemp : iTotal);
             if(firstT+secondT==10 && firstT!=10){
                 secondT = '/'; // '/' = spare
             }else if(firstT==10){
