@@ -1,4 +1,3 @@
-
 var boardExample = [[1,4],[4,5],[6,4],[5,5],[10,0],[0,1],[7,3],[6,4],[10,0],[2,8]];
 
 class Turn {
@@ -7,16 +6,9 @@ class Turn {
     }
     
     printBoard(){
-        let firstT  = 0;
-        let secondT = 0;
-        let iTemp   = 0;
-        let iTotal  = 0;
-        let iToString = 0;
-        let sString1 = '';
-        let sTotales = '';
-        let sString2 = '';
+        let firstT  = 0, secondT = 0, iTemp   = 0, iTotal  = 0, iToString = 0, sString1 = '', sTotales = '', sString2 = '';
         this.board.forEach(function(value){
-            firstT = value[0];
+            firstT = value[0]; 
             secondT = value[1];
             iTotal = firstT+secondT;
             iTotal =(iTemp!=0 ? iTotal+iTemp : iTotal);
@@ -42,7 +34,8 @@ class Turn {
             console.log(sTotales);
         });
         return sTotales;
-    }
+    }  
+
 }
 const a = new Turn(boardExample);
 console.log(a.printBoard());
