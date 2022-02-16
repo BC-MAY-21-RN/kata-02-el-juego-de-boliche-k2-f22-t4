@@ -7,7 +7,7 @@
 }*/
 
 var boardExample= [[4,5],[3,2],[10,0],[2,7],[3,5],[5,5],[5,4],[10,0],[1,9],[8,1]];
-// console.log(boardExample.length);
+
 
 class Turn {
     constructor(board){
