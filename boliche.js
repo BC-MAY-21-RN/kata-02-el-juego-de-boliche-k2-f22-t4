@@ -13,24 +13,23 @@ for (let i = 0; i <=9; i++) {
     arrTemp.push(iNum2);
     boardExample.push(arrTemp);
 }
-boardExample = [[1,4],[4,5],[6,4],[5,5],[10,0],[0,1],[7,3],[6,4],[10,0],[10,0]];
+//boardExample = [[1,4],[4,5],[6,4],[5,5],[10,0],[0,1],[7,3],[6,4],[10,0],[9,1]];
 
 class Turn {
     constructor(board){
         this.board = board;
     }
     
-    printBoard(){
-        let firstT  = 0, secondT = 0, iTemp   = 0, iTotal  = 0, iToString = 0, sString1 = '', sTotales = '', sString2 = '', arr = this.board, extraPoint,extraPointTwo;
+    printBoard(){ // Esta función es más larga de lo permitido, por lo que da una puntuación de C :(
+        let firstT  = 0, secondT = 0, iTemp   = 0, iTotal  = 0, iToString = 0, sString1 = '', sTotales = '', sString2 = '', isSpare = false, arr = this.board, extraPoint,extraPointTwo;
         this.board.forEach(function(value,i){
-            //si hace spare dar otro valor y se suma
-            //si hace chuza dar otro tiro == 1 otro tiro 5
             firstT  = value[0]; 
             secondT = value[1]; 
             iTotal  = firstT+secondT; 
             iTotal  = (iTemp!=0 ? iTotal+iTemp : iTotal);
             if(firstT+secondT==10 && firstT!=10){
                 if(i == 9){
+                    isSpare = true;
                     extraPoint = Math.round(Math.random()*10);
                     iTotal=iTotal + extraPoint;
                 }else{
@@ -57,7 +56,11 @@ class Turn {
                 }
             }else{ 
                 if( i ==9 ){ //0,1,2,3,4,5,6,7,8,(9)
-                    sString1 += firstT+' '+secondT+' '+extraPoint+' |'; 
+                    if(isSpare){
+                        sString1 += firstT+' '+secondT+' '+extraPoint+' |'; 
+                    }else{
+                        sString1 += firstT+' '+secondT+' |'; 
+                    }
                 }
                 else{
                     sString1 += firstT+' '+secondT+' |'; 
